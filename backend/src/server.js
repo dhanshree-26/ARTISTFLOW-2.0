@@ -43,8 +43,10 @@ app.use((req, res) => {
   res.status(404).json({ error: 'Route not found' });
 });
 
-app.listen(PORT, () => {
-  console.log(`ArtistFlow API server running on http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`ArtistFlow API server running on http://localhost:${PORT}`);
+  });
+}
 
 module.exports = app;
